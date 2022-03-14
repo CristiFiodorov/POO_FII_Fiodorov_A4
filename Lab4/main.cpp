@@ -3,9 +3,9 @@
 
 int main()
 {
-	char str[] = "1,2,5,3,8,9,100";
-	Sort s{};
-	s.BubbleSort(false);
+	char str[] = "10,2,5,3,1,8,9,100";
+	Sort s{str};
+	s.QuickSort(true);
 
 	s.Print();
 

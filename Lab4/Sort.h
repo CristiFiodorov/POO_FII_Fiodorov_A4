@@ -3,9 +3,14 @@
 
 class Sort
 {
-public:
+private:
     int* m_array{};
     int m_size{};
+
+    void swap(int* a, int* b);
+    int partition(int arr[], int low, int high, bool ascendent);
+    void quick_sort(int arr[], int low, int high, bool ascendent);
+
 public:
 
     Sort(int size, int min, int max); // 1

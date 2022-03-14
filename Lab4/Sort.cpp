@@ -8,6 +8,42 @@
 #include <cstdarg>
 #include <cstring>
 
+void Sort::swap(int* a, int* b)
+{
+    int t{ *a };
+    *a = *b;
+    *b = t;
+}
+
+int Sort::partition(int arr[], int low, int high, bool ascendent)
+{
+
+    int pivot{ arr[high] }; 
+    int i{ low - 1 };
+
+    for (int j{ low }; j <= high - 1; ++j)
+    {
+        if (arr[j] < pivot && ascendent || arr[j] > pivot && !ascendent)
+        {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
+}
+
+void Sort::quick_sort(int arr[], int low, int high, bool ascendent)
+{
+    if (low < high)
+    {
+        int pi{ partition(arr, low, high, ascendent) };
+
+        quick_sort(arr, low, pi - 1, ascendent);
+        quick_sort(arr, pi + 1, high, ascendent);
+    }
+}
+
 Sort::Sort(int size, int min, int max) : m_array{ new int[size] }, m_size{ size }
 {
     srand(time(NULL));
@@ -81,6 +117,7 @@ void Sort::InsertSort(bool ascendent)
 
 void Sort::QuickSort(bool ascendent)
 {
+    quick_sort(m_array, 0, m_size - 1, ascendent);
 }
 
 void Sort::BubbleSort(bool ascendent)
