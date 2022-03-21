@@ -14,10 +14,10 @@ int letter_to_figure(char c)
 
 char figure_to_letter(int n)
 {
-	if (n >= 10)
-		return char(n + 55);
-	else
+	if (n >= 0 && n <= 9)
 		return char(n + 48);
+	else
+		return char(n + 55);
 }
 
 char* invert_char(char* a)
