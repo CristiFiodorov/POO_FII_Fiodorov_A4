@@ -10,9 +10,11 @@ private:
 	Weather circuit_weather{};
 
 	Car* cars[20]{};
-	float finish_time[20]{};
+	double finish_time[20]{};
 	bool finish[20]{};
-	double race_car(Car* car, Weather weather, int circuit_length) {};
+
+	double race_car(Car* car, Weather weather, int circuit_length);
+	void car_sort();
 
 public:
 

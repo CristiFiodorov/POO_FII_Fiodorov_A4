@@ -10,7 +10,7 @@
 int main()
 {
 	Circuit c;
-	c.SetLength(100);
+	c.SetLength(150);
 	c.SetWeather(Weather::Rainy);
 	c.AddCar(new Dacia());
 	c.AddCar(new Toyota());
