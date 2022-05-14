@@ -24,7 +24,7 @@ public:
 	pair<T, V>* begin();
 	pair<T, V>* end();
 
-	V& operator[] (int key);
+	V& operator[] (T key);
 
 	void Set(const T& key, const V& value);
 	bool Get(const T& key, V& value);
@@ -66,7 +66,7 @@ inline pair<T, V>* Map<T, V>::end()
 }
 
 template<class T, class V>
-inline V& Map<T, V>::operator[](int key)
+inline V& Map<T, V>::operator[](T key)
 {
 	for (int i{ 0 }; i < m_count; ++i)
 	{
@@ -133,6 +133,7 @@ inline void Map<T, V>::Clear()
 	m_count = 0;
 	m_allocated_space = 8;
 	delete[] m_pairs;
+	m_pairs = new pair<T, V>[8];
 }
 
 template<class T, class V>
